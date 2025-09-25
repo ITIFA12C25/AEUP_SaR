@@ -1,6 +1,7 @@
 #include <iostream>
-#include "raumschiff.h"
-#include "rettungskapsel.h"
+
+#include "raumschiff.hh"
+#include "rettungskapsel.hh"
 
 using namespace std;
 
@@ -11,9 +12,9 @@ int main()
 
     Rettungskapsel *rk1;
     cout << rk1 << endl;
-    s1->setRettung(rk1);
-    cout << s1->getRettung() << endl;
-    s1->setRettung(rk1);
+    
+    cout << s1->getRettungskapsel() << endl;
+    s1->setRettungskapsel(rk1);
 
     s1->setName("Enterprise");
     s2->setName("Voyager");
@@ -33,70 +34,3 @@ int main()
     return 0;
 }
 
-Raumschiff::Raumschiff()
-{
-    rk = new Rettungskapsel;
-    cout << "Raumschiff an Adresse " << this << " erstellt" << endl;
-}
-
-Raumschiff::~Raumschiff()
-{
-    cout << "Raumschiff an Adresse " << this << " gekillt" << endl;
-}
-
-void Raumschiff::setName(string inName)
-{
-    Name=inName;
-}
-
-string  Raumschiff::getName(void)
-{
-    return Name;
-}
-
-void Raumschiff::setBesatzung(int inBesatzung)
-{
-    Besatzung=inBesatzung;
-}
-
-int Raumschiff::getBesatzung(void)
-{
-    return Besatzung;
-}
-
-void Raumschiff::senden(string s)
-{
-    rs->empfangen(s);
-}
-
-int Raumschiff::senden(string s)
-{
-    cout << Name << " hat die Nachricht " << s << " emppfangen" << endl;
-}
-
-
-Rettungskapsel::Rettungskapsel()
-{
-
-}
-
-
-void Rettungskapsel::setSerienNr(string inName)
-{
-    Name=inName;
-}
-
-string  Rettungskapsel::getName(void)
-{
-    return Name;
-}
-
-void Rettungskapsel::setBesatzung(int inBesatzung)
-{
-    Besatzung=inBesatzung;
-}
-
-int Rettungskapsel::getBesatzung(void)
-{
-    return Besatzung;
-}
